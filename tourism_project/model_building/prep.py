@@ -17,7 +17,7 @@ from huggingface_hub import login, HfApi
 # Define constants for the dataset and output paths
 api = HfApi(token=os.getenv("HF_TOKEN"))
 DATASET_PATH = "hf://datasets/Andrew2505/Tourism-package-project/tourism.csv"
-df = pd.read_csv(DATASET_PATH)
+tourism = pd.read_csv(DATASET_PATH)
 print("Dataset loaded successfully.")
 
 # Define features for numerical and categorical
