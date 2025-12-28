@@ -17,7 +17,7 @@ from huggingface_hub import login, HfApi
 # Define constants for the dataset and output paths
 api = HfApi(token=os.getenv("HF_TOKEN"))
 DATASET_PATH = "hf://datasets/Andrew2505/Tourism-package-project/tourism.csv"
-tourism = pd.read_csv(DATASET_PATH)
+df = pd.read_csv(DATASET_PATH)
 print("Dataset loaded successfully.")
 
 # Define features for numerical and categorical
@@ -26,16 +26,16 @@ categorical_features = ['TypeofContact', 'Occupation', 'Gender', 'MaritalStatus'
 
 # Convert the specified columns in the DataFrame 'df' to 'category' dtype
 for col_name in categorical_features:
-    tourism[col_name] = tourism[col_name].astype("category")
+    df[col_name] = df[col_name].astype("category")
 
 # Define the target variable for the classification task
 target = 'ProdTaken'
 
 # Define predictor matrix (X) using selected numeric and categorical features
-X = tourism[numeric_features + categorical_features]
+X = df[numeric_features + categorical_features]
 
 # Define target variable
-y = tourism[target]
+y = df[target]
 
 # Split dataset into train and test
 # Split the dataset into training and test sets
