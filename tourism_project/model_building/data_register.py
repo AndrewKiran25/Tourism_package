@@ -20,4 +20,5 @@ except RepositoryNotFoundError:
 api.upload_folder(
     folder_path="tourism_project/data",
     repo_id=repo_id,
-    r
+     repo_type=repo_type,
+)
